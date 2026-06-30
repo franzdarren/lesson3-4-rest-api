@@ -31,7 +31,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/students/0",
+							"raw": "http://localhost:8080/api/students",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -39,8 +39,7 @@
 							"port": "8080",
 							"path": [
 								"api",
-								"students",
-								"0"
+								"students"
 							]
 						}
 					},
@@ -53,12 +52,12 @@
 							"value": "application/json"
 						},
 						{
-							"key": "Content-Length",
-							"value": "38"
+							"key": "Transfer-Encoding",
+							"value": "chunked"
 						},
 						{
 							"key": "Date",
-							"value": "Mon, 29 Jun 2026 07:34:53 GMT"
+							"value": "Tue, 30 Jun 2026 05:26:48 GMT"
 						},
 						{
 							"key": "Keep-Alive",
@@ -70,7 +69,353 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"firstName\": \"asd\",\n    \"lastName\": \"sdadw\"\n}"
+					"body": "[\n    {\n        \"id\": 1,\n        \"firstName\": \"franz\",\n        \"lastName\": \"xsu\",\n        \"email\": \"asd@gmail.com\"\n    },\n    {\n        \"id\": 2,\n        \"firstName\": \"\",\n        \"lastName\": \"xsu\",\n        \"email\": \"asd@gmdddail.com\"\n    },\n    {\n        \"id\": 3,\n        \"firstName\": \"\",\n        \"lastName\": \"d\",\n        \"email\": \"a\"\n    },\n    {\n        \"id\": 5,\n        \"firstName\": \"\",\n        \"lastName\": \"d\",\n        \"email\": \"awdawdawdwd\"\n    },\n    {\n        \"id\": 6,\n        \"firstName\": \"awdawdawd\",\n        \"lastName\": \"dddddddddddss\",\n        \"email\": \"dddds@gmail.com\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "ADD STUDENT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"awdawdawd\",\r\n    \"lastName\": \"dddddddddddss\",\r\n    \"email\": \"dddds@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"students"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ADD STUDENT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"awdawdawd\",\r\n    \"lastName\": \"dddddddddddss\",\r\n    \"email\": \"dddds@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"students"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 30 Jun 2026 05:09:56 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 6,\n    \"firstName\": \"awdawdawd\",\n    \"lastName\": \"dddddddddddss\",\n    \"email\": \"dddds@gmail.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "UPDATE STUDENT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"firstName\": \"new\",\r\n    \"lastName\": \"new\",\r\n    \"email\": \"newupdate@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/students/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"students",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "UPDATE STUDENT",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"firstName\": \"new\",\r\n    \"lastName\": \"new\",\r\n    \"email\": \"newupdate@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"students",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 30 Jun 2026 05:29:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"firstName\": \"new\",\n    \"lastName\": \"new\",\n    \"email\": \"newupdate@gmail.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "PATCH STUDENT",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"newupdate@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/students/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"students",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PATCH STUDENT",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"mrfirstname\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"students",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 30 Jun 2026 05:51:38 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"firstName\": \"mrfirstname\",\n    \"lastName\": \"new\",\n    \"email\": \"newupdate@gmail.com\"\n}"
+				}
+			]
+		},
+		{
+			"name": "DELETE STUDENT",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"newupdate@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/students/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"students",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DELETE STUDENT",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"newupdate@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/students/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"students",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 30 Jun 2026 05:39:01 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Student deleted successfully"
 				}
 			]
 		},
