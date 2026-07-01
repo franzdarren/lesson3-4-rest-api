@@ -9,5 +9,5 @@ public class SpingRestDemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpingRestDemoApplication.class, args);
 	}
-
+	
 }
