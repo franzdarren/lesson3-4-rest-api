@@ -50,7 +50,7 @@ async function getAllStudents() {
                     <td>${student.lastName}</td>
                     <td>${student.email}</td>
                     <td>
-                        <button class="custom-btn btn-edit" onclick="initializeStudentFormById(${student.id})">Edit</button>
+                        <button class="custom-btn btn-edit" onclick="initializeStudentFormById(${studsent.id})">Edit</button>
                         <button class="custom-btn btn-delete" onclick="deleteStudent(${student.id})">Delete</button>
                     </td>
                 </tr>

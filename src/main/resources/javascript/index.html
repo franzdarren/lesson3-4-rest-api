@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,17 +58,43 @@
         .header-group { overflow: auto; margin-bottom: 20px; }
         .header-group h2 { margin: 0; float: left; }
         
+        .table-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+            border: 1px solid #eef2f5;
+        }
         table {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 25px;
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: #fff;
         }
         th, td {
-            padding: 12px;
+            padding: 16px 20px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #eef2f5;
+            transition: background-color 0.2s ease;
         }
-        th { background-color: #f2f2f2; }
+        th {
+            background-color: #f8fafc;
+            color: #4a5568;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tbody tr {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        tbody tr:hover td {
+            background-color: #f8faff;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -100,19 +127,21 @@
         <button type="submit" class="custom-btn btn-submit" id="submitBtn">Add Student</button>
     </form>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="studentTableBody">
-        </tbody>
-    </table>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="studentTableBody">
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <div class="modal fade" id="systemModal" tabindex="-1" aria-labelledby="systemModalLabel" aria-hidden="true">
@@ -138,3 +167,5 @@
 <script src="app.js"></script>
 </body>
 </html>
+
+```
