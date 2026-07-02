@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f4f7f6;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 { color: #333; }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .error-message { 
+            color: #dc3545; 
+            font-size: 0.85rem; 
+            margin-top: 5px; 
+            display: block; 
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: white;
+        }
+        .btn-submit { background-color: #28a745; }
+        .btn-clear { background-color: #6c757d; }
+        .btn-edit { background-color: #007bff; margin-right: 5px; }
+        .btn-delete { background-color: #dc3545; }
+        
+        /* ADDED: Styling for your new logout button placement */
+        .btn-logout { background-color: #dc3545; float: right; }
+        .header-group { overflow: auto; margin-bottom: 20px; }
+        .header-group h2 { margin: 0; float: left; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-group">
+        <h2>Student Management Dashboard</h2>
+        <button type="button" class="btn-logout" id="logoutBtn" onclick="logoutUser()">Logout</button>
+    </div>
+    
+    <form id="studentForm" novalidate>
+        <input type="hidden" id="studentId">
+        
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" required minlength="2" maxlength="50">
+            <span id="firstNameError" class="error-message"></span>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" required minlength="2" maxlength="50">
+            <span id="lastNameError" class="error-message"></span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <span id="emailError" class="error-message"></span>
+        </div>
+        
+        <button type="submit" class="btn-submit" id="submitBtn">Add Student</button>
+        </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="studentTableBody">
+            </tbody>
+    </table>
+</div>
+<script src="validation.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
