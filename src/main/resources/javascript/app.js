@@ -3,7 +3,6 @@ const API_AUTH = "http://localhost:8080/api/auth";
 
 document.addEventListener("DOMContentLoaded", getAllStudents);
 
-//bootstrap modal for showing shtuff
 function showModal({ title, body, isConfirm = false, onConfirm = null }) {
     const modalEl = document.getElementById('systemModal');
     const modalInstance = bootstrap.Modal.getOrCreateInstance(modalEl);
@@ -50,7 +49,7 @@ async function getAllStudents() {
                     <td>${student.lastName}</td>
                     <td>${student.email}</td>
                     <td>
-                        <button class="custom-btn btn-edit" onclick="initializeStudentFormById(${studsent.id})">Edit</button>
+                        <button class="custom-btn btn-edit" onclick="initializeStudentFormById(${student.id})">Edit</button>
                         <button class="custom-btn btn-delete" onclick="deleteStudent(${student.id})">Delete</button>
                     </td>
                 </tr>
