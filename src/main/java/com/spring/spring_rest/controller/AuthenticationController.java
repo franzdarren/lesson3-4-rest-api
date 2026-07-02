@@ -1,6 +1,8 @@
 package com.spring.spring_rest.controller;
 
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,9 @@ import com.spring.spring_rest.entity.Auth_Role;
 import com.spring.spring_rest.entity.Auth_User;
 import com.spring.spring_rest.repository.AuthRoleRepository;
 import com.spring.spring_rest.repository.AuthUserRepository;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -118,5 +123,33 @@ public class AuthenticationController {
 	    SecurityContextHolder.getContext().setAuthentication(authenticate);
 
 	    return new ResponseEntity<>("Sign in successfully!", HttpStatus.OK);
+	}
+	
+	@PostMapping("/auth_login_session")
+	public ResponseEntity<?> loginWithSession(@RequestBody AuthLoginDto authLoginDto,
+	                                          HttpServletRequest request) {
+
+	    Authentication authentication = authenticationManager.authenticate(
+	            new UsernamePasswordAuthenticationToken(authLoginDto.getUsername(),
+	                    authLoginDto.getPassword())
+	    );
+
+	    SecurityContextHolder.getContext().setAuthentication(authentication);
+	    HttpSession session = request.getSession(true);
+	    session.setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext());
+
+	    Map<String, String> response = new HashMap<>();
+	    response.put("message", "Authenticated successfully via session cookie.");
+	    return ResponseEntity.ok(response);
+	}
+	@PostMapping("/logout")
+	public ResponseEntity<String> logout(HttpServletRequest request) {
+	    HttpSession session = request.getSession(false);
+	    if (session != null) {
+	        session.invalidate();
+	    }
+	    SecurityContextHolder.clearContext();
+	    return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+	            .body("Logged out from session container.");
 	}
 }
